@@ -1,0 +1,14 @@
+translator_config:
+  deepl:
+    label: 'DeepL API'
+    class_name: \Drupal\ai_translate_textfield\DeepLTranslator
+    api_key: override-this-in-a-settings-file
+    api_endpoint: 'https://api.deepl.com/v2/translate'
+button_text: 'Request automatic translation'
+warning_enabled: 1
+dialog_title: 'Important notice - please read thoroughly before proceeding'
+dialog_content:
+  value: '<p>The automatic translation is created by a third-party LLM tool meaning that changes in tonality or even subject errors can occur. It should not be considered a final translation but rather a starting point to work off of. When using this feature, I understand that I must check the returned translation for mistakes, make improvements and ensure that the content matches the our desired tone of voice.</p>'
+  format: simple_text
+dialog_ok_button: 'I understand'
+dialog_cancel_button: Cancel

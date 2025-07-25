@@ -1,0 +1,9 @@
+ai_translate_textfield.settings_form:
+  path: '/admin/config/ai/ai-translate-textfield'
+  defaults:
+    _form: '\Drupal\ai_translate_textfield\Form\AiTranslateTextfieldSettingsForm'
+    _title: 'AI Translate Textfield settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

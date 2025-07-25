@@ -1,0 +1,47 @@
+ai_translate_textfield.settings:
+  type: config_object
+  label: 'Configuration for AI Textfield Translation module'
+  mapping:
+    provider:
+      type: string
+      label: 'Translator Configuration'
+
+    button_text:
+      type: text
+      label: 'The copy for the added button element on the form'
+
+    warning_enabled:
+      type: boolean
+      label: 'Modal dialog warning before sending the content to the translator'
+
+    dialog_title:
+      type: text
+      label: 'The modal dialog text title'
+
+    dialog_content:
+      type: mapping
+      label: 'The modal dialog text content'
+      mapping:
+        value:
+          type: text
+          label: 'The content value'
+        format:
+          type: string
+          label: 'The text content format format'
+
+    dialog_ok_button:
+      type: text
+      label: 'The modal dialog Ok button'
+
+    dialog_cancel_button:
+      type: text
+      label: 'The modal dialog Cancel button'
+
+field.widget.third_party.ai_translate_textfield:
+  type: mapping
+  label: 'AI Textfield Translation settings'
+  mapping:
+    strip_tags:
+      type: boolean
+    enable_translations:
+      type: boolean

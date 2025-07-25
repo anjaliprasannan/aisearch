@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ *
+ * Update hook to re-encrypt the auto_translation_api_key.
+ */
+function auto_translation_update_8001() {
+    if (!function_exists('openssl_cipher_iv_length') || !function_exists('openssl_decrypt')) {
+        // The OpenSSL extension is not available.
+        \Drupal::logger('auto_translation')->warning('OpenSSL extension is not available.');
+        \Drupal::messenger('auto_translation')->addWarning(t('The OpenSSL extension is not available. Please enable it to re-encrypt the API key.'));
+        return;
+    }
+    // Load the editable configuration for auto_translation.settings.
+    $config = \Drupal::configFactory()->getEditable('auto_translation.settings');
+
+    // Retrieve the current API key.
+    // Assumes the key is stored in plain text; if it is already encrypted,
+    // you might need to decrypt it first.
+    $plain_api_key = $config->get('auto_translation_api_key');
+
+    // Define the master secret. For example, use the site’s hash salt.
+    // It is recommended to define a dedicated secret in settings.php.
+    $secret = \Drupal::config('system.site')->get('hash_salt');
+
+    // Derive a 256-bit (32-byte) key from the secret.
+    $key = substr(hash('sha256', $secret, true), 0, 32);
+
+    // Get the IV length for AES-256-CBC.
+    $ivLength = openssl_cipher_iv_length('AES-256-CBC');
+
+    // Generate a cryptographically secure random IV.
+    $iv = random_bytes($ivLength);
+
+    // Encrypt the plain API key using AES-256-CBC with raw output.
+    $encrypted = openssl_encrypt($plain_api_key, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+
+    // Concatenate the IV and the ciphertext.
+    // The IV is needed for decryption; here we prepend it to the encrypted data.
+    $encryptedApiKey = base64_encode($iv . $encrypted);
+
+    // Save the newly encrypted API key into configuration.
+    $config->set('auto_translation_api_key', $encryptedApiKey)->save();
+}
+/**
+ * Implements hook_update_N().
+ *
+ * Update hook to re-encrypt the auto_translation_api_key with custom secret.
+ */
+function auto_translation_update_8002() {
+    if (!function_exists('openssl_cipher_iv_length') || !function_exists('openssl_decrypt')) {
+        // The OpenSSL extension is not available.
+        \Drupal::logger('auto_translation')->warning('OpenSSL extension is not available.');
+        \Drupal::messenger('auto_translation')->addWarning(t('The OpenSSL extension is not available. Please enable it to re-encrypt the API key.'));
+        return;
+    }
+    // Load the editable configuration for auto_translation.settings.
+    $config = \Drupal::configFactory()->getEditable('auto_translation.settings');
+
+    // Retrieve the current API key.
+    // Assumes the key is stored in plain text; if it is already encrypted,
+    // you might need to decrypt it first.
+    $plain_api_key = $config->get('auto_translation_api_key');
+
+    // Define the master secret. For example, use the site’s hash salt.
+    // It is recommended to define a dedicated secret in settings.php.
+    $secret = $config->get('custom_secret');
+    if (empty($secret)) {
+      $secret = bin2hex(random_bytes(16)); // Generate a 32-character random string.
+      $config->set('custom_secret', $secret)->save();
+    } else {
+      $secret = $config->get('custom_secret');
+    }
+
+    // Derive a 256-bit (32-byte) key from the secret.
+    $key = substr(hash('sha256', $secret, true), 0, 32);
+
+    // Get the IV length for AES-256-CBC.
+    $ivLength = openssl_cipher_iv_length('AES-256-CBC');
+
+    // Generate a cryptographically secure random IV.
+    $iv = random_bytes($ivLength);
+
+    // Encrypt the plain API key using AES-256-CBC with raw output.
+    $encrypted = openssl_encrypt($plain_api_key, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+
+    // Concatenate the IV and the ciphertext.
+    // The IV is needed for decryption; here we prepend it to the encrypted data.
+    $encryptedApiKey = base64_encode($iv . $encrypted);
+
+    // Save the newly encrypted API key into configuration.
+    $config->set('auto_translation_api_key', $encryptedApiKey)->save();
+}
+
+/**
+ * Rename configuration key for DeepL Pro mode setting.
+ */
+function auto_translation_update_8003() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('auto_translation.settings');
+
+  if ($config->get('auto_translation_api_deepl_mode') !== NULL) {
+    $value = $config->get('auto_translation_api_deepl_mode');
+    $config->set('auto_translation_api_deepl_pro_mode', (bool) $value);
+    $config->clear('auto_translation_api_deepl_mode');
+    $config->save();
+  }
+}

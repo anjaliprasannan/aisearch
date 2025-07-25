@@ -1,0 +1,28 @@
+{
+  "name": "drupal/ai_tmgmt",
+  "description": "TMGMT implementation of AI Module to allow use of many AI Providers like OpenAI, Ollama, etc.",
+  "type": "drupal-module",
+  "keywords": ["Drupal", "Translation", "TMGMT", "AI"],
+  "homepage": "http://drupal.org/project/ai_tmgmt",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/ai": "^1.0.4",
+    "drupal/tmgmt": "^1.16"
+  },
+  "authors": [
+    {
+      "name": "Minnur Yunusov (minnur)",
+      "homepage": "https://www.drupal.org/u/minnur",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Scott Euser (scott_euser)",
+      "homepage": "https://www.drupal.org/u/scott_euser",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/ai_tmgmt",
+    "source": "https://git.drupalcode.org/project/ai_tmgmt"
+  }
+}

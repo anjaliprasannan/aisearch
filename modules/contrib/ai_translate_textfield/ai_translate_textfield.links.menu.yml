@@ -1,0 +1,6 @@
+ai_translate_textfield.settings_form:
+  title: 'AI Textfield Translation Settings'
+  description: 'Configure AI Textfield Translation settings.'
+  parent: ai.admin_settings
+  route_name: ai_translate_textfield.settings_form
+  weight: 99

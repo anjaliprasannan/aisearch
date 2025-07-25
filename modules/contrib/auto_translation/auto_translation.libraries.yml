@@ -1,0 +1,6 @@
+# Main theme library.
+auto_translation.admin:
+  version: 1.x
+  css:
+    theme:
+      css/auto_translation.css: {}

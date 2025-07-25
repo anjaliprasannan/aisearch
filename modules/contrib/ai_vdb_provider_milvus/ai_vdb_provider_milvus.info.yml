@@ -1,0 +1,17 @@
+name: Milvus/Zilliz VDB Provider
+description: This enables the use of Milvus (local) or Zilliz (cloud) Vector Database in the AI module.
+package: AI Vector Database Providers (Experimental)
+type: module
+core_version_requirement: ^10.2 || ^11
+configure: ai_vdb_provider_milvus.settings_form
+lifecycle: experimental
+
+dependencies:
+  - ai:ai
+  - ai:ai_search
+  - key:key
+
+# Information added by Drupal.org packaging script on 2025-06-12
+version: '1.1.0-beta2'
+project: 'ai_vdb_provider_milvus'
+datestamp: 1749732207

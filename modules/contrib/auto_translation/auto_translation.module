@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Module file for auto_translation.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function auto_translation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.auto_translation':
+    $text = file_get_contents(dirname(__FILE__) . "/README.md");
+    if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+      return '<pre>' . $text . '</pre>';
+    }
+    else {
+      /** @var \Drupal\markdown\PluginManager\ParserManagerInterface $parser_manager */
+      $parser_manager = \Drupal::service('plugin.manager.markdown.parser');
+      $parser = $parser_manager->getDefaultParser([
+        'render_strategy' => ['type' => 'none'],
+      ]);
+      return $parser->parse($text);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_node_alter() for node_form.
+ */
+function auto_translation_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $form_id = $form['#form_id'];
+  if(!str_ends_with($form_id, '_edit_form')) {
+    $translationUtility = \Drupal::service('auto_translation.utility');
+    $translationUtility->formTranslate($form, $form_state);
+    return $form;
+  }
+}
+
+/**
+ * Implements hook_form_media_alter() for media_form.
+ */
+function auto_translation_form_media_form_alter(&$form, FormStateInterface $form_state) {
+  $form_id = $form['#form_id'];
+  if(str_ends_with($form_id, '_add_form')) {
+    $translationUtility = \Drupal::service('auto_translation.utility');
+    $translationUtility->formTranslate($form, $form_state);
+    return $form;
+  }
+}
+
+/**
+ * Implements hook_form_media_alter() for block_form and taxonomy_form.
+ */
+function auto_translation_form_alter(&$form, FormStateInterface $form_state) {
+  $form_id = $form['#form_id'];
+  if ((strpos($form_id, 'block_content_') === 0 && str_ends_with($form_id, '_block_add_form')) || (strpos($form_id, 'taxonomy_term_') === 0 && str_ends_with($form_id, '_form'))) {
+    $translationUtility = \Drupal::service('auto_translation.utility');
+    $translationUtility->formTranslate($form, $form_state);
+    return $form;
+  }
+}

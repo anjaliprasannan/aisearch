@@ -1,0 +1,9 @@
+administer auto_translation module:
+  title: 'Administer Auto Translation module'
+  description: 'Perform administration tasks for Auto Translation module.'
+  restrict access: true
+
+auto translation translate content:
+  title: 'Translate content'
+  description: 'Translate content using the Auto Translation module.'
+  restrict access: true

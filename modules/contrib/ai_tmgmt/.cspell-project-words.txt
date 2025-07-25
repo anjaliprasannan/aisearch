@@ -1,0 +1,16 @@
+euser
+Euser
+minnur
+Minnur
+TMGMT
+tmgmt
+Chunker
+chunker
+Ollama
+unflatten
+Yunusov
+DeepL
+ai_tmgmt
+tmgmt_openai
+openai
+OpenAI

@@ -1,0 +1,6 @@
+modal-button-action:
+  js:
+    js/modal-button-action.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

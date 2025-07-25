@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * AI TMGMT install file.
+ */
+
+/**
+ * Update to maintain current selection of using AI TMGMT configuration.
+ */
+function ai_tmgmt_update_10001() {
+  $config_factory = \Drupal::configFactory();
+  $translators = $config_factory->listAll('tmgmt.translator.');
+  if (empty($translators)) {
+    return t('TMGMT is not configured, no update is needed.');
+  }
+
+  $updated = 0;
+  foreach ($translators as $translator) {
+    $config_object = $config_factory->getEditable($translator);
+    if (!$config_object) {
+      continue;
+    }
+    $config = $config_object->getRawData();
+
+    // We only want to update translators related to this module.
+    if (empty($config['plugin']) || $config['plugin'] !== 'ai') {
+      continue;
+    }
+
+    // Set the default to the status quo for existing installs.
+    $settings = $config_object->get('settings');
+    $settings['model_selection_type'] = 'ai_tmgmt';
+    $config_object->set('settings', $settings);
+    $config_object->save();
+    $updated++;
+  }
+
+  if ($updated) {
+    return t('AI TMGMT configuration has been updated');
+  }
+  return t('AI TMGMT is not configured, no update is needed.');
+}

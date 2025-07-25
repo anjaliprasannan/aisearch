@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains ai_translate_textfield update hooks.
+ */
+
+/**
+ * Updates form mode and module config to remove obsolete options.
+ */
+function ai_translate_textfield_update_9001() {
+  $entity_display_storage = \Drupal::entityTypeManager()->getStorage('entity_form_display');
+
+  $entity_displays = $entity_display_storage->loadMultiple();
+
+  foreach ($entity_displays as $entity_display) {
+    $fields_changed = FALSE;
+    foreach ($entity_display->getComponents() as $field_name => $field_settings) {
+      $widget = $entity_display->getComponent($field_name);
+      if ($widget && isset($widget['third_party_settings']['ai_translate_textfield']['translation_service'])) {
+        unset($widget['third_party_settings']['ai_translate_textfield']['translation_service']);
+        $entity_display->setComponent($field_name, $widget);
+        $fields_changed = TRUE;
+      }
+    }
+
+    // Save the updated entity display configuration if changes were made.
+    if ($fields_changed) {
+      $entity_display->save();
+    }
+  }
+
+  \Drupal::logger('ai_translate_textfield')->info('Removed translation_service from all entity form displays.');
+
+  $config = \Drupal::configFactory()->getEditable('ai_translate_textfield.settings');
+  foreach (['translator_config', 'strip_tags'] as $key) {
+    $config->clear($key);
+  }
+  $config->save();
+  \Drupal::logger('ai_translate_textfield')->info('Removed obsolete module config options.');
+}

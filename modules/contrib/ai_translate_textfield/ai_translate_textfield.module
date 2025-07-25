@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Hooks and other procedural code for the AI textfield translation module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\ai_translate_textfield\AiTranslateTexfieldCallbacks;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\WidgetInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_field_widget_third_party_settings_form().
+ */
+function ai_translate_textfield_field_widget_third_party_settings_form(WidgetInterface $plugin, FieldDefinitionInterface $field_definition, $form_mode, array $form, FormStateInterface $form_state) {
+
+  if (!in_array($plugin->getPluginId(), AiTranslateTexfieldCallbacks::SUPPORTED_FIELD_WIDGETS, TRUE)) {
+    return;
+  }
+
+  $element = [
+    '#type' => 'details',
+    '#title' => t('AI Textfield Translation Settings'),
+    '#open' => TRUE,
+  ];
+
+  $element['enable_translations'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable textfield translation feature on this field.'),
+    '#description' => t('This provides a button under the textfield that an editor can use for requesting 3rd party translation.'),
+    '#default_value' => $plugin->getThirdPartySetting('ai_translate_textfield', 'enable_translations'),
+  ];
+
+  $element['strip_tags'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Remove possible HTML formatting on the field before translation'),
+    '#description' => t('This removes HTML formatting (using PHP strip_tags()) from the text before feeding it to the translator.'),
+    '#default_value' => $plugin->getThirdPartySetting('ai_translate_textfield', 'strip_tags'),
+  ];
+
+  return $element;
+
+}
+
+/**
+ * Implements hook_field_widget_settings_summary_alter().
+ */
+function ai_translate_textfield_field_widget_settings_summary_alter(&$summary, $context) {
+  $plugin_id = $context['widget']->getPluginId();
+
+  if (!in_array($plugin_id, AiTranslateTexfieldCallbacks::SUPPORTED_FIELD_WIDGETS, TRUE)) {
+    return;
+  }
+  if ($context['widget']->getThirdPartySetting('ai_translate_textfield', 'enable_translations')) {
+    $summary[] = t('AI Textfield Translation enabled.');
+  }
+  else {
+    $summary[] = t('AI Textfield Translation disabled.');
+  }
+}
+
+/**
+ * Implements hook_field_widget_single_element_form_alter().
+ */
+function ai_translate_textfield_field_widget_single_element_form_alter(array &$element, FormStateInterface $form_state, array $context) {
+  AiTranslateTexfieldCallbacks::processElement($element, $form_state, $context);
+}

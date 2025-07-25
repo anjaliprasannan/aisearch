@@ -1,0 +1,21 @@
+tmgmt.translator.settings.ai_tmgmt:
+  type: mapping
+  mapping:
+    model_selection_type:
+      type: string
+      label: Translation configuration
+    chat_model:
+      type: string
+      label: Chat Model from AI module
+    tokenizer_model:
+      type: string
+      label: Tokenizer Model for counting
+    advanced:
+      type: mapping
+      mapping:
+        prompt:
+          type: string
+          label: Prompt to AI
+        max_tokens:
+          type: integer
+          label: Maximum length

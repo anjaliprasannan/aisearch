@@ -1,0 +1,13 @@
+name: 'AI Textfield Translation'
+type: module
+description: 'Provides AI textfield translation functionality.'
+core_version_requirement: ^10 || ^11
+package: Content
+configure: ai_translate_textfield.settings_form
+dependencies:
+  - ai:ai
+
+# Information added by Drupal.org packaging script on 2024-10-15
+version: '2.0.0-alpha1'
+project: 'ai_translate_textfield'
+datestamp: 1728996542

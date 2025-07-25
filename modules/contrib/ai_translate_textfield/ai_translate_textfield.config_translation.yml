@@ -1,0 +1,5 @@
+ai_translate_textfield.settings:
+  title: 'AI Textfield Translation settings'
+  base_route_name: 'ai_translate_textfield.settings_form'
+  names:
+    - ai_translate_textfield.settings

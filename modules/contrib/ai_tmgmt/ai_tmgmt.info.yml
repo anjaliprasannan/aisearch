@@ -1,0 +1,14 @@
+name: 'AI Translator'
+description: 'TMGMT implementation of AI Module to allow use of many AI Providers like OpenAI, Ollama, etc.'
+package: 'Translation Management'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - ai
+  - tmgmt
+configure: entity.tmgmt_translator.collection
+type: module
+
+# Information added by Drupal.org packaging script on 2025-02-05
+version: '1.0.0-beta2'
+project: 'ai_tmgmt'
+datestamp: 1738766851
