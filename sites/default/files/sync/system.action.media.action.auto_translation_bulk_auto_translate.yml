@@ -1,0 +1,14 @@
+uuid: 041c62a1-bcdf-4cd2-9e0b-2e3a58bebc7c
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - auto_translation
+  enforced:
+    module:
+      - auto_translation
+id: media.action.auto_translation_bulk_auto_translate
+label: 'Auto Translate media'
+type: media
+plugin: auto_translation_bulk_auto_translate_draft_action
+configuration: {  }

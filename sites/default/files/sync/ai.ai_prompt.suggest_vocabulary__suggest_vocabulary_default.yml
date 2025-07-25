@@ -1,0 +1,10 @@
+uuid: ff88aabb-e9d7-4e87-99de-a47c36120827
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jC2V9OOG7hmsI1dL5vNMzoJ4Hu2PpgneUaWDG536mvc
+id: suggest_vocabulary__suggest_vocabulary_default
+label: 'Default prompt for suggest vocabulary'
+type: suggest_vocabulary
+prompt: 'Choose no more than five words to classify the following text using the same language as the input text:'

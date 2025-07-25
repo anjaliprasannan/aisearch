@@ -1,0 +1,28 @@
+label: 'Recettes associées'
+description: 'Liste des recettes associées'
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      title: 'Recettes associées'
+      fields:
+        title:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Appliquer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        nid:
+          exception:
+            title: Tout
+        field_recipe_category_target_id:
+          exception:
+            title: Tout
+  related_recipes_block:
+    display_title: Bloc
+    display_options:
+      block_description: 'Recettes associées'

@@ -1,0 +1,27 @@
+uuid: 22f1010d-2ded-42c4-b8b4-7fda9594d4cb
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - ai_search
+id: ai_server
+name: 'AI Server'
+description: ''
+backend: search_api_ai_search
+backend_config:
+  chat_model: openai__gpt-3.5-turbo
+  database: milvus
+  database_settings:
+    database_name: default
+    collection: Milvusvdbcollection
+    metric: cosine_similarity
+  embeddings_engine: openai__text-embedding-3-large
+  embeddings_engine_configuration:
+    set_dimensions: false
+    dimensions: 3072
+  embedding_strategy: contextual_chunks
+  embedding_strategy_configuration:
+    chunk_size: '500'
+    chunk_min_overlap: '100'
+    contextual_content_max_percentage: '30'
+  embedding_strategy_details: ''

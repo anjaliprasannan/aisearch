@@ -1,0 +1,37 @@
+uuid: ef31d659-afbe-448b-a98a-0200c6c6a52c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destinations
+    - node.type.article
+    - paragraphs.paragraphs_type.popular_destinations
+  module:
+    - ai_translate
+    - entity_reference_revisions
+third_party_settings:
+  ai_translate:
+    entity_reference:
+      translate_references: 'yes'
+    translate_references: 'yes'
+id: node.article.field_destinations
+field_name: field_destinations
+entity_type: node
+bundle: article
+label: Destinations
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      popular_destinations: popular_destinations
+    negate: 0
+    target_bundles_drag_drop:
+      popular_destinations:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

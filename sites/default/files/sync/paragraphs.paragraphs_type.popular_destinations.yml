@@ -1,0 +1,10 @@
+uuid: ca8176d9-57c3-49dd-829a-e682eaba209f
+langcode: en-gb
+status: true
+dependencies: {  }
+id: popular_destinations
+label: 'Popular Destinations'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,24 @@
+label: 'Articles aside'
+display:
+  default:
+    display_title: Default
+    display_options:
+      title: 'More featured articles'
+      fields:
+        title:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        nid:
+          exception:
+            title: All
+  block_1:
+    display_title: Block
+    display_options:
+      block_description: 'Articles aside'

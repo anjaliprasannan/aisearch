@@ -1,0 +1,3 @@
+enabled_automators:
+  - llm_simple_text_long
+  - llm_media_Audio_generation

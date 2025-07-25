@@ -1,0 +1,68 @@
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      fields:
+        bundle:
+          label: Type
+          separator: ', '
+        created:
+          label: Date
+          separator: ', '
+        prompt:
+          separator: ', '
+        output_text:
+          label: Réponse
+          separator: ', '
+        extra_data:
+          separator: ', '
+        provider:
+          label: Fournisseur
+          separator: ', '
+        model:
+          label: Modèle
+          separator: ', '
+        tags_value:
+          label: Étiquettes
+          separator: ', '
+        view_ai_log:
+          text: Voir
+        edit_ai_log:
+          text: Modifier
+        delete_ai_log:
+          text: Supprimer
+        dropbutton:
+          label: Actions
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      exposed_form:
+        options:
+          submit_button: Appliquer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      filters:
+        bundle:
+          expose:
+            label: Type
+        created_1:
+          expose:
+            label: À
+        provider:
+          expose:
+            label: Fournisseur
+        model:
+          expose:
+            label: Modèle
+  page_1:
+    display_title: Page

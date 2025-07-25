@@ -1,0 +1,10 @@
+uuid: eaf2fd26-6b14-45bc-82f3-2a29588fb48a
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: mz0pSh1FwU6Q-9h77v337f5ZgmsRKYy31FrJJicLVMI
+id: suggest_tags
+label: 'Suggest tags'
+variables: {  }
+tokens: {  }

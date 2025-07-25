@@ -1,0 +1,37 @@
+uuid: 4f4155fe-8755-4416-904f-42aaf12afb29
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_image
+    - media.type.audio
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - node.type.article
+_core:
+  default_config_hash: Dfvz5jYPmv2LmsUWibogVL4H987sLO5Kjm7_ezAt_Gg
+id: node.article.field_media_image
+field_name: field_media_image
+entity_type: node
+bundle: article
+label: 'Media Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+      document: document
+      image: image
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: audio
+field_type: entity_reference

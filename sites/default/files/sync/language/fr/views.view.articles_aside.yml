@@ -1,0 +1,24 @@
+label: 'Articles sur la barre latérale'
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      title: "Plus d'articles mis en avant"
+      fields:
+        title:
+          separator: ', '
+      exposed_form:
+        options:
+          submit_button: Appliquer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        nid:
+          exception:
+            title: Tout
+  block_1:
+    display_title: Bloc
+    display_options:
+      block_description: 'Articles sur la barre latérale'

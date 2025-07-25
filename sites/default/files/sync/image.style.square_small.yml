@@ -1,0 +1,23 @@
+uuid: 0dc85e7e-da8e-41d5-bd01-4d923bc09a44
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 3cmeciVlCdgtYeOnIRpHJM1bPUOCYDqJCsWsW_om6uY
+name: square_small
+label: 'Square Small'
+effects:
+  6c19e3f2-f291-4824-bc17-e485a979502c:
+    uuid: 6c19e3f2-f291-4824-bc17-e485a979502c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 300
+      anchor: center-center
+  dc9608c0-7510-4fbf-9474-028565687572:
+    uuid: dc9608c0-7510-4fbf-9474-028565687572
+    id: image_convert_avif
+    weight: 2
+    data:
+      extension: webp

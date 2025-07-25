@@ -1,0 +1,33 @@
+uuid: 9d8209db-3a49-44b2-9db7-e4f50ae7b5d6
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.ai_automator_status
+field_name: ai_automator_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: pending
+      label: Pending
+    -
+      value: processing
+      label: Processing
+    -
+      value: failed
+      label: Failed
+    -
+      value: finished
+      label: Finished
+  allowed_values_function: ''
+module: options
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

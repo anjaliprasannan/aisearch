@@ -1,0 +1,36 @@
+uuid: 11ffc94a-2eae-442e-a8b2-adbe08632b75
+langcode: en-gb
+status: true
+dependencies: {  }
+id: no_agent_assistant
+label: 'No agent assistant'
+description: 'An assistant that can find old articles and also publish and unpublish them.'
+system_prompt: ''
+pre_action_prompt: ''
+instructions: 'If the user asks questions about unpublished articles, make sure to add status unpublished somewhere in the lookup.'
+allow_history: session
+history_context_length: '2'
+error_message: 'I am sorry, something went terribly wrong. Please try to ask me again.'
+specific_error_messages:
+  AiBadRequestException: ''
+  AiRateLimitException: ''
+  AiQuotaException: ''
+  AiSetupFailureException: ''
+  AiRequestErrorException: ''
+llm_provider: openai
+llm_model: gpt-4o
+llm_configuration:
+  max_tokens: 4096
+  temperature: 1.0
+  frequency_penalty: 0
+  presence_penalty: 0
+  top_p: 1.0
+actions_enabled: {  }
+roles:
+  anonymous: 0
+  authenticated: 0
+  administrator: 0
+  author: 0
+  editor: 0
+use_function_calling: false
+ai_agent: no_agent_assistant

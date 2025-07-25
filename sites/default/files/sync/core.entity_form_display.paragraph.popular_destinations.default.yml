@@ -1,0 +1,40 @@
+uuid: c951a464-3978-4f8a-898b-511a63048a03
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.popular_destinations.field_city_image
+    - field.field.paragraph.popular_destinations.field_city_name
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.popular_destinations
+  module:
+    - image
+id: paragraph.popular_destinations.default
+targetEntityType: paragraph
+bundle: popular_destinations
+mode: default
+content:
+  field_city_image:
+    type: image_image
+    weight: 11
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_city_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

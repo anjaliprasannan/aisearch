@@ -1,0 +1,2 @@
+label: 'Default prompt for suggest vocabulary'
+prompt: 'Choose no more than five words to classify the following text using the same language as the input text:'

@@ -1,0 +1,19 @@
+auto_translation_content_types:
+  recipe_category: recipe_category
+  tags: tags
+  audio: audio
+  document: document
+  image: image
+  remote_video: remote_video
+  video: video
+  article: article
+  page: page
+  recipe: recipe
+auto_translation_api_enabled: false
+auto_translation_api_key: ''
+auto_translation_provider: drupal_ai
+interval: null
+auto_translation_api_deepl_pro_mode: false
+auto_translation_excluded_fields: ''
+auto_translation_bulk_publish: draft
+enable_debug: false

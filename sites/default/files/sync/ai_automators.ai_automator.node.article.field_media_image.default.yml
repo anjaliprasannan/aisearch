@@ -1,0 +1,33 @@
+uuid: 1f56e174-5d48-4f7a-894e-de914ccb132b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_media_image
+id: node.article.field_media_image.default
+label: 'Media Image Default'
+rule: llm_media_Audio_generation
+input_mode: base
+weight: 2
+worker_type: direct
+entity_type: node
+bundle: article
+field_name: field_media_image
+edit_mode: false
+base_field: revision_log
+prompt: sefsdfg
+token: ''
+plugin_config:
+  enabled: true
+  automator_rule: llm_media_Audio_generation
+  automator_mode: base
+  automator_base_field: revision_log
+  automator_prompt: sefsdfg
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'Media Image Default'
+  automator_weight: '100'
+  automator_worker_type: direct
+  automator_ai_provider: default
+  automator_llm_media_type: audio
+disabled: false

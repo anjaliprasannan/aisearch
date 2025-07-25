@@ -1,0 +1,18 @@
+uuid: f63cfe83-8d82-4dff-bcf2-f2201bfd1136
+langcode: en-gb
+status: true
+dependencies: {  }
+id: no_agent_assistant
+label: 'No agent assistant'
+description: 'An assistant that can find old articles and also publish and unpublish them.'
+system_prompt: 'If the user asks questions about unpublished articles, make sure to add status unpublished somewhere in the lookup.'
+secured_system_prompt: null
+tools: {  }
+tool_settings: null
+orchestration_agent: true
+triage_agent: false
+max_loops: 3
+default_information_tools: null
+tool_usage_limits: {  }
+exclude_users_role: false
+masquerade_roles: {  }

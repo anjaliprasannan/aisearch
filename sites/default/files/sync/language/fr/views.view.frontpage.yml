@@ -1,0 +1,32 @@
+label: "Page d'accueil"
+description: "Tout le contenu promu en page d'accueil."
+display:
+  default:
+    display_title: 'Par défaut'
+    display_options:
+      title: Accueil
+      exposed_form:
+        options:
+          submit_button: Appliquer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area_text_custom:
+          content: "Aucun contenu de page d'accueil n'a été créé pour l'instant."
+        title:
+          title: 'Bienvenue sur [site:name]'
+      header:
+        area:
+          content:
+            value: '<p class="text-align-center">Explorez des recettes pour tous les types d''occasions, d''ingrédients et de niveaux de difficultés.</p>'
+  feed_1:
+    display_title: Flux
+  page_1:
+    display_title: Page
+    display_options:
+      header:
+        area:
+          content:
+            value: '<p class="text-align-center">Explorez des recettes pour tous les types d''occasions, d''ingrédients et de niveaux de difficultés</p>'

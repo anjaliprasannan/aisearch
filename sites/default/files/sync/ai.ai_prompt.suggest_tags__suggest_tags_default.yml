@@ -1,0 +1,10 @@
+uuid: 3b5b94aa-96e6-4f74-bd9e-dadaf82171f0
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KjuJIUJ7nST88fOqvZ3kly8KRrLBnrB_zvN1kpIdNcI
+id: suggest_tags__suggest_tags_default
+label: 'Default prompt for suggest tags'
+type: suggest_tags
+prompt: 'Suggest no more than five words to classify the following text using the same language as the input text. The words must be nouns or adjectives in a comma delimited list'

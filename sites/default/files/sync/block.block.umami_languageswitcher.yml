@@ -1,0 +1,22 @@
+uuid: 92eae9c5-4753-44b4-8a7e-7c8344e7f12e
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - umami
+_core:
+  default_config_hash: dhs54rZwlADLhS_wtViUXbtrVppO7Fv6NtlzOlK8iCE
+id: umami_languageswitcher
+theme: umami
+region: pre_header
+weight: 0
+provider: null
+plugin: 'language_block:language_interface'
+settings:
+  id: 'language_block:language_interface'
+  label: 'Language switcher'
+  label_display: '0'
+  provider: language
+visibility: {  }

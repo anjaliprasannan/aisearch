@@ -1,0 +1,43 @@
+uuid: 7b408987-2b32-480d-bdd4-cdd0b064fc6d
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_body
+id: node.article.field_body.default
+label: 'Body Default'
+rule: llm_text_long
+input_mode: base
+weight: 3
+worker_type: direct
+entity_type: node
+bundle: article
+field_name: field_body
+edit_mode: true
+base_field: title
+prompt: '{{context}}'
+token: ''
+plugin_config:
+  enabled: true
+  automator_rule: llm_text_long
+  automator_mode: base
+  automator_base_field: title
+  automator_prompt: '{{context}}'
+  automator_token: ''
+  automator_edit_mode: 1
+  automator_label: 'Body Default'
+  automator_weight: '100'
+  automator_worker_type: direct
+  automator_ai_provider: openai
+  automator_ai_model: gpt-4o
+  automator_configuration_max_tokens: '4096'
+  automator_configuration_temperature: '1'
+  automator_configuration_frequency_penalty: '0'
+  automator_configuration_presence_penalty: '0'
+  automator_configuration_top_p: '1'
+  automator_configuration_image_field: ''
+  automator_configuration_image_style: ''
+  automator_joiner: ''
+  automator_joiner_other: ''
+  automator_use_text_format: basic_html
+disabled: false
